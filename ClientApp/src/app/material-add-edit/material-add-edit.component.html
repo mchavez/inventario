@@ -1,0 +1,68 @@
+<h1>{{actionType}} Editar Material</h1>
+<form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Nombre</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="nombre">
+    </div>
+    <span class="text-danger ml-3" *ngIf="nombre.invalid && formDir.submitted">
+      nombre requerido.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12" for="Body">Descripcion</label>
+    <div class="col-md-12">
+      <textarea class="form-control" rows="15" formControlName="descripcion"></textarea>
+    </div>
+    <span class="text-danger ml-3" *ngIf="descripcion.invalid && formDir.submitted">
+      descripcion requerida.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Precio</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="precio">
+    </div>
+    <span class="text-danger ml-3" *ngIf="precio.invalid && formDir.submitted">
+      precio requerido.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Medida</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="medida">
+    </div>
+    <span class="text-danger ml-3" *ngIf="medida.invalid && formDir.submitted">
+      medida requerido.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Existencia</label>
+    <div class="col-md-12">
+      <input class="form-control" type="number" formControlName="existencia">
+    </div>
+
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">CategoriaId</label>
+    <div class="col-md-12">
+      <input class="form-control" type="number" formControlName="categoriaId">
+    </div>
+    <span class="text-danger ml-3" *ngIf="categoriaId.invalid && formDir.submitted">
+        categoriaId requerido.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">ProveedorId</label>
+    <div class="col-md-12">
+      <input class="form-control" type="number" formControlName="proveedorId">
+    </div>
+    <span class="text-danger ml-3" *ngIf="proveedorId.invalid && formDir.submitted">
+        proveedorId requerido.
+    </span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success float-right">Guardar</button>
+    <button class="btn btn-secondary float-left" (click)="cancel()">Cancelar</button>
+  </div>
+</form>

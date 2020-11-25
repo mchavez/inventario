@@ -1,0 +1,5 @@
+C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.0\inventario.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.0\inventario.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.0\inventario.AssemblyInfo.cs
+C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.0\inventario.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.0\inventario.MvcApplicationPartsAssemblyInfo.cache

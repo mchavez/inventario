@@ -1,0 +1,14 @@
+<ng-container *ngIf="(material$ | async) as material; else loading">
+
+    <h1>{{ material.nombre }}</h1>
+    <div>{{ material.descripcion }}</div>
+    <ul>
+      <li>Precio : {{ material.precio }}</li>
+      <li>Medida : {{ material.medida }}</li>
+      <li>Existencia : {{ material.existencia }}</li>
+      <li>Categoria : {{ material.categoriaId }}</li>
+      <li>Proveedor : {{ material.proveedorId }}</li>
+    </ul>
+  
+  </ng-container>
+  <ng-template #loading>Loading…</ng-template>

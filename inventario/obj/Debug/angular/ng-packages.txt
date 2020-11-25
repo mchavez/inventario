@@ -1,0 +1,12 @@
+C:\Users\HP
++-- @angular/animations@11.0.2
+| `-- tslib@2.0.3
++-- @angular/cdk@11.0.0
+| +-- parse5@5.1.1
+| `-- tslib@2.0.3 deduped
++-- UNMET PEER DEPENDENCY @angular/common@^11.0.0 || ^12.0.0-0
++-- UNMET PEER DEPENDENCY @angular/core@11.0.2
++-- UNMET PEER DEPENDENCY @angular/forms@^11.0.0 || ^12.0.0-0
+`-- @angular/material@11.0.0
+  `-- tslib@2.0.3 deduped
+
