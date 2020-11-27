@@ -9,13 +9,17 @@ import { MaterialesComponent } from './materiales/materiales.component';
 import { MaterialComponent } from './material/material.component';
 import { MaterialAddEditComponent } from './material-add-edit/material-add-edit.component';
 import { MaterialService } from './services/material.service';
+import { HeaderComponent } from './header/header.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialesComponent,
     MaterialComponent,
-    MaterialAddEditComponent
+    MaterialAddEditComponent,
+    HeaderComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

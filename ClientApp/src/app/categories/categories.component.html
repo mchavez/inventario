@@ -1,0 +1,24 @@
+<h1>Listado de Categorias</h1>
+
+<p *ngIf="!(categorias$ | async)"><em>Loading...</em></p>
+<p>
+  <a [routerLink]="['/add']" class="btn btn-success float-right mb-3">Nueva Categoria</a>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let categoria of (categorias$ | async)">
+      <th scope="row">{{ categoria.categoriaId }}</th>
+      <td><a [routerLink]="['/category/', categoria.CategoriaId]">{{ categoria.nombreCategoria }}</a></td>
+      <td><a [routerLink]="['/category/edit/', categoria.CategoriaId]" class="btn btn-secondary btn-sm float-right">Editar</a></td>
+      <td><a [routerLink]="" (click)="delete(categoria.CategoriaId)" class="btn btn-danger btn-sm float-right">Eliminar</a></td>
+    </tr>
+    
+  </tbody>
+</table>

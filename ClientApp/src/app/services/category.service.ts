@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Material } from '../models/material';
 import { Categoria } from '../models/categoria';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MaterialService {
+export class CategoryService {
 
   myAppUrl: string;
   myApiUrl: string;
@@ -21,54 +20,43 @@ export class MaterialService {
   };
   constructor(private http: HttpClient) {
       this.myAppUrl = environment.appUrl;
-      this.myApiUrl = 'api/Materials/';
-      this.myApiUrlCategorias = 'api/Categorias/';
+      this.myApiUrl = 'api/Categorias/';
   }
 
-  getMateriales(): Observable<Material[]> {
-    return this.http.get<Material[]>(this.myAppUrl + this.myApiUrl)
+  getCategorias(): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(this.myAppUrl + this.myApiUrl)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
     );
   }
 
-  getCategories(): Observable<Categoria[]> {
-    return this.http.get<Categoria[]>(this.myAppUrl + this.myApiUrlCategorias)
-    .pipe(
-      retry(1),
-      catchError(this.errorHandler)
-    );
-  }
-
-  getMaterial(materialId: number): Observable<Material> {
-      return this.http.get<Material>(this.myAppUrl + this.myApiUrl + materialId)
+  getCategoria(categoriaId: number): Observable<Categoria> {
+      return this.http.get<Categoria>(this.myAppUrl + this.myApiUrl + categoriaId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
 
-  saveMaterial(material): Observable<Material> {
-    material.categoriaId = +material.categoriaId;
-      return this.http.post<Material>(this.myAppUrl + this.myApiUrl, JSON.stringify(material), this.httpOptions)
+  saveCategoria(categoria): Observable<Categoria> {
+      return this.http.post<Categoria>(this.myAppUrl + this.myApiUrl, JSON.stringify(categoria), this.httpOptions)
       .pipe(
         retry(1), 
         catchError(this.errorHandler)
       );
   }
 
-  updateMaterial(materialId: number, material): Observable<Material> {
-      material.categoriaId = +material.categoriaId;
-      return this.http.put<Material>(this.myAppUrl + this.myApiUrl + materialId, JSON.stringify(material), this.httpOptions)
+  updateCategoria(categoriaId: number, categoria): Observable<Categoria> {
+      return this.http.put<Categoria>(this.myAppUrl + this.myApiUrl + categoriaId, JSON.stringify(categoria), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
 
-  deleteMaterial(materialId: number): Observable<Material> {
-      return this.http.delete<Material>(this.myAppUrl + this.myApiUrl + materialId)
+  deleteCategoria(categoriaId: number): Observable<Categoria> {
+      return this.http.delete<Categoria>(this.myAppUrl + this.myApiUrl + categoriaId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -87,4 +75,5 @@ export class MaterialService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+
 }

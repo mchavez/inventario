@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { MaterialesComponent } from './materiales/materiales.component';
 import { MaterialComponent } from './material/material.component';
 import { MaterialAddEditComponent } from './material-add-edit/material-add-edit.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
   { path: '', component: MaterialesComponent, pathMatch: 'full' },
   { path: 'material/:id', component: MaterialComponent },
   { path: 'add', component: MaterialAddEditComponent },
   { path: 'material/edit/:id', component: MaterialAddEditComponent },
-  { path: '**', redirectTo: '/' }
+  { path: 'categorias', component: CategoriesComponent },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({

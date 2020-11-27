@@ -10,22 +10,31 @@ using inventario.Models;
 
 namespace inventario.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
     {
-        private readonly inventarioContext _context;
-
-        public CategoriasController(inventarioContext context)
+        private readonly inventarioContext _context; 
+        private readonly IDataRepository<Categoria> _repo;
+        public CategoriasController(inventarioContext context, IDataRepository<Categoria> repo)
         {
             _context = context;
+            _repo = repo;
         }
 
         // GET: api/Categorias
-        [HttpGet]
+        /*[HttpGet]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoria()
         {
             return await _context.Categoria.ToListAsync();
+        }*/
+
+        // GET: api/Categorias
+        [HttpGet]
+        public IEnumerable<Categoria> GetCategoria()
+        {
+            return _context.Categoria.OrderByDescending(p => p.CategoriaId);
         }
 
         // GET: api/Categorias/5

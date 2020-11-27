@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MaterialService } from '../services/material.service';
 import { Material } from '../models/material';
+import { Categoria } from '../models/categoria';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-material-add-edit',
@@ -22,8 +24,11 @@ export class MaterialAddEditComponent implements OnInit {
   materialId: number;
   errorMessage: any;
   existingMaterial: Material;
+  //categorias: any = ['ItSolutionStuff.com', 'HDTuto.com', 'Nicesnippets.com'];
+  categorias$: Observable<Categoria[]>;
 
-  constructor(private materialService: MaterialService, private formBuilder: FormBuilder, private avRoute: ActivatedRoute, private router: Router) {
+  constructor(private materialService: MaterialService, private formBuilder: FormBuilder, 
+    private avRoute: ActivatedRoute, private router: Router) {
     const idParam = 'id';
     this.actionType = 'Add';
     this.formNombre = 'nombre';
@@ -33,6 +38,7 @@ export class MaterialAddEditComponent implements OnInit {
     this.formExistencia = 0;
     this.formCategoriaId = 0;
     this.formProveedorId = 0;
+
     if (this.avRoute.snapshot.params[idParam]) {
       this.materialId = this.avRoute.snapshot.params[idParam];
     }
@@ -46,13 +52,13 @@ export class MaterialAddEditComponent implements OnInit {
         medida: ['', [Validators.required]],
         existencia: ['', [Validators.required]],
         categoriaId: ['', [Validators.required]],
-        proveedorId: ['', [Validators.required]]
+        proveedorId: ['', [Validators.required]],
       }
     )
   }
 
   ngOnInit() {
-
+    this.loadCategorias();
     if (this.materialId > 0) {
       this.actionType = 'Edit';
       this.materialService.getMaterial(this.materialId)
@@ -62,14 +68,25 @@ export class MaterialAddEditComponent implements OnInit {
           this.form.controls[this.formDescripcion].setValue(data.descripcion),
           this.form.controls[this.formPrecio].setValue(data.precio),
           this.form.controls[this.formMedida].setValue(data.medida),
-          //this.form.controls[this.formExistencia].setValue(data.existencia),
           this.form.controls['existencia'].setValue(data.existencia),
-          //this.form.controls[this.formCategoriaId].setValue(data.categoriaId),
           this.form.controls['categoriaId'].setValue(data.categoriaId),
-          //this.form.controls[this.formProveedorId].setValue(data.proveedorId)
           this.form.controls['proveedorId'].setValue(data.proveedorId)
         ));
     }
+  }
+
+  loadCategorias() {
+    this.categorias$ = this.materialService.getCategories();
+  }
+
+  formChanged(): void {
+    console.log('formChanged called');
+  }
+
+  changeSuit(e) {
+    this.form.get('categoriaId').setValue(e.target.value as number, {
+       onlySelf: true
+    })
   }
 
   save() {
@@ -83,11 +100,8 @@ export class MaterialAddEditComponent implements OnInit {
         descripcion: this.form.get(this.formDescripcion).value,
         precio: this.form.get(this.formPrecio).value,
         medida: this.form.get(this.formMedida).value,
-        //existencia: this.form.get(this.formExistencia).value as number,
         existencia: this.form.get('existencia').value as number,
-        //categoriaId: this.form.get(this.formCategoriaId).value,
         categoriaId: this.form.get('categoriaId').value as number,
-        //proveedorId: this.form.get(this.formProveedorId).value
         proveedorId: this.form.get('proveedorId').value as number,
       };
 
@@ -107,7 +121,7 @@ export class MaterialAddEditComponent implements OnInit {
         //existencia: this.form.get(this.formExistencia).value,
         existencia: this.form.get('existencia').value,
         //categoriaId: this.form.get(this.formCategoriaId).value,
-        categoriaId: this.form.get('categoriaId').value,
+        categoriaId: this.form.get('categoriaId').value as number,
         //proveedorId: this.form.get(this.formProveedorId).value,
         proveedorId: this.form.get('proveedorId').value,
       };
