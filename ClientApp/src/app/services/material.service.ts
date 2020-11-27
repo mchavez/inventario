@@ -5,6 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Material } from '../models/material';
 import { Categoria } from '../models/categoria';
+import { Proveedor } from '../models/proveedor';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class MaterialService {
   myAppUrl: string;
   myApiUrl: string;
   myApiUrlCategorias: string;
+  myApiUrlProveedores: string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
@@ -23,6 +25,7 @@ export class MaterialService {
       this.myAppUrl = environment.appUrl;
       this.myApiUrl = 'api/Materials/';
       this.myApiUrlCategorias = 'api/Categorias/';
+      this.myApiUrlProveedores = "api/Proveedors/";
   }
 
   getMateriales(): Observable<Material[]> {
@@ -35,6 +38,14 @@ export class MaterialService {
 
   getCategories(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.myAppUrl + this.myApiUrlCategorias)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
+  getProviders(): Observable<Proveedor[]> {
+    return this.http.get<Proveedor[]>(this.myAppUrl + this.myApiUrlProveedores)
     .pipe(
       retry(1),
       catchError(this.errorHandler)

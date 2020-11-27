@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MaterialService } from '../services/material.service';
 import { Material } from '../models/material';
 import { Categoria } from '../models/categoria';
+import { Proveedor } from '../models/proveedor';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -26,6 +27,7 @@ export class MaterialAddEditComponent implements OnInit {
   existingMaterial: Material;
   //categorias: any = ['ItSolutionStuff.com', 'HDTuto.com', 'Nicesnippets.com'];
   categorias$: Observable<Categoria[]>;
+  proveedores$: Observable<Proveedor[]>;
 
   constructor(private materialService: MaterialService, private formBuilder: FormBuilder, 
     private avRoute: ActivatedRoute, private router: Router) {
@@ -59,6 +61,7 @@ export class MaterialAddEditComponent implements OnInit {
 
   ngOnInit() {
     this.loadCategorias();
+    this.loadProveedores();
     if (this.materialId > 0) {
       this.actionType = 'Edit';
       this.materialService.getMaterial(this.materialId)
@@ -74,17 +77,27 @@ export class MaterialAddEditComponent implements OnInit {
         ));
     }
   }
-
+  // Fill category dropdown
   loadCategorias() {
     this.categorias$ = this.materialService.getCategories();
+  }
+  // Fill providers dropdown
+  loadProveedores() {
+    this.proveedores$ = this.materialService.getProviders();
   }
 
   formChanged(): void {
     console.log('formChanged called');
   }
 
-  changeSuit(e) {
+  changeCategory(e) {
     this.form.get('categoriaId').setValue(e.target.value as number, {
+       onlySelf: true
+    })
+  }
+
+  changeProvider(e) {
+    this.form.get('proveedorId').setValue(e.target.value as number, {
        onlySelf: true
     })
   }
@@ -104,7 +117,8 @@ export class MaterialAddEditComponent implements OnInit {
         categoriaId: this.form.get('categoriaId').value as number,
         proveedorId: this.form.get('proveedorId').value as number,
       };
-      material.categoriaId = +material.categoriaId;
+      material.categoriaId = +material.categoriaId; //casting values string into int
+      material.proveedorId = +material.proveedorId;
       this.materialService.saveMaterial(material)
         .subscribe((data) => {
           this.router.navigate(['/materials', data.materialId]);
@@ -123,7 +137,8 @@ export class MaterialAddEditComponent implements OnInit {
         proveedorId: this.form.get('proveedorId').value,
       };
    
-      material.categoriaId = +material.categoriaId;
+      material.categoriaId = +material.categoriaId; //casting values
+      material.proveedorId = +material.proveedorId;
       this.materialService.updateMaterial(material.materialId, material)
         .subscribe((data) => {
           //this.router.navigate([this.router.url]);

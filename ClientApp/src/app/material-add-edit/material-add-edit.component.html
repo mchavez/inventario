@@ -44,14 +44,23 @@
   </div>
 
   <div class="form-group">
-    <label for="category">CategoriaId:</label>
-    <select class="form-control" type="number" formControlName="categoriaId" (change)="changeSuit($event)">
+    <label for="category">Categoria:</label>
+    <select class="form-control" type="number" formControlName="categoriaId" (change)="changeCategory($event)">
         <option disabled>Selecciona categoria</option>
         <option *ngFor="let categoria of (categorias$ | async)" 
         [value]="categoria.categoriaId">{{categoria.nombreCategoria}}</option>
     </select>
   </div>
 
+  <div class="form-group">
+    <label for="provider">Proveedor:</label>
+    <select class="form-control" type="number" formControlName="proveedorId" (change)="changeProvider($event)">
+        <option disabled>Selecciona proveedor</option>
+        <option *ngFor="let proveedor of (proveedores$ | async)" 
+        [value]="proveedor.proveedorId">{{proveedor.nombreProveedor}}</option>
+    </select>
+  </div>
+<!--
   <div class="form-group row">
     <label class=" control-label col-md-12">ProveedorId</label>
     <div class="col-md-12">
@@ -61,6 +70,7 @@
         proveedorId requerido.
     </span>
   </div>
+-->
   <div class="form-group">
     <button type="submit" class="btn btn-success float-right">Guardar</button>
     <button class="btn btn-secondary float-left" (click)="cancel()">Cancelar</button>
