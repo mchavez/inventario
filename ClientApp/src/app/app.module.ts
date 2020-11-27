@@ -10,8 +10,10 @@ import { MaterialComponent } from './material/material.component';
 import { MaterialAddEditComponent } from './material-add-edit/material-add-edit.component';
 import { MaterialService } from './services/material.service';
 import { HeaderComponent } from './header/header.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaAddEditComponent } from './categoria-add-edit/categoria-add-edit.component';
+import { ProveedorComponent } from './proveedor/proveedor.component';
+import { ProveedorAddEditComponent } from './proveedor-add-edit/proveedor-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import { CategoriaAddEditComponent } from './categoria-add-edit/categoria-add-ed
     MaterialComponent,
     MaterialAddEditComponent,
     HeaderComponent,
-    CategoriesComponent,
-    CategoriaAddEditComponent
+    CategoriaComponent,
+    CategoriaAddEditComponent,
+    ProveedorComponent,
+    ProveedorAddEditComponent
   ],
   imports: [
     BrowserModule,

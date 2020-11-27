@@ -1,0 +1,24 @@
+<h1>Listado de Proveedores</h1>
+
+<p *ngIf="!(proveedores$ | async)"><em>Loading...</em></p>
+<p>
+  <a [routerLink]="['/addproveedores']" class="btn btn-success float-right mb-3">Nuevo Proveedor</a>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Proveedor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let proveedor of (proveedores$ | async)">
+      <th scope="row">{{ proveedor.proveedorId }}</th>
+      <td><a>{{ proveedor.nombreProveedor }}</a></td>
+      <td><a [routerLink]="['/proveedores/edit/', proveedor.proveedorId]" class="btn btn-primary btn-sm float-right">Editar</a></td>
+      <td><a [routerLink]="" (click)="delete(proveedor.proveedorId)" class="btn btn-danger btn-sm float-right">Eliminar</a></td>
+    </tr>
+    
+  </tbody>
+</table>

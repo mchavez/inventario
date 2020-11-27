@@ -4,11 +4,11 @@ import { CategoryService } from '../services/category.service';
 import { Categoria } from '../models/categoria';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  selector: 'app-categoria',
+  templateUrl: './categoria.component.html',
+  styleUrls: ['./categoria.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriaComponent implements OnInit {
   categorias$: Observable<Categoria[]>;
 
   constructor(private categoryService: CategoryService) {
