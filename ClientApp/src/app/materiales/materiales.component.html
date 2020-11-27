@@ -28,7 +28,7 @@
       <td>{{ material.existencia }}</td>
       <td>{{ material.categoriaId }}</td>
       <td>{{ material.proveedorId }}</td>
-      <td><a [routerLink]="['/material/edit/', material.materialId]" class="btn btn-secondary btn-sm float-right">Editar</a></td>
+      <td><a [routerLink]="['/material/edit/', material.materialId]" class="btn btn-primary btn-sm float-right">Editar</a></td>
       <td><a [routerLink]="" (click)="delete(material.materialId)" class="btn btn-danger btn-sm float-right">Eliminar</a></td>
     </tr>
     

@@ -50,7 +50,6 @@ export class MaterialService {
   }
 
   saveMaterial(material): Observable<Material> {
-    material.categoriaId = +material.categoriaId;
       return this.http.post<Material>(this.myAppUrl + this.myApiUrl, JSON.stringify(material), this.httpOptions)
       .pipe(
         retry(1), 
@@ -59,7 +58,6 @@ export class MaterialService {
   }
 
   updateMaterial(materialId: number, material): Observable<Material> {
-      material.categoriaId = +material.categoriaId;
       return this.http.put<Material>(this.myAppUrl + this.myApiUrl + materialId, JSON.stringify(material), this.httpOptions)
       .pipe(
         retry(1),

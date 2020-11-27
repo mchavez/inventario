@@ -104,7 +104,7 @@ export class MaterialAddEditComponent implements OnInit {
         categoriaId: this.form.get('categoriaId').value as number,
         proveedorId: this.form.get('proveedorId').value as number,
       };
-
+      material.categoriaId = +material.categoriaId;
       this.materialService.saveMaterial(material)
         .subscribe((data) => {
           this.router.navigate(['/materials', data.materialId]);
@@ -118,13 +118,12 @@ export class MaterialAddEditComponent implements OnInit {
         descripcion: this.form.get(this.formDescripcion).value,
         precio: this.form.get(this.formPrecio).value,
         medida: this.form.get(this.formMedida).value,
-        //existencia: this.form.get(this.formExistencia).value,
         existencia: this.form.get('existencia').value,
-        //categoriaId: this.form.get(this.formCategoriaId).value,
         categoriaId: this.form.get('categoriaId').value as number,
-        //proveedorId: this.form.get(this.formProveedorId).value,
         proveedorId: this.form.get('proveedorId').value,
       };
+   
+      material.categoriaId = +material.categoriaId;
       this.materialService.updateMaterial(material.materialId, material)
         .subscribe((data) => {
           //this.router.navigate([this.router.url]);

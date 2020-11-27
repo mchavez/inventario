@@ -1,4 +1,4 @@
-<h1>{{actionType}} Editar Material</h1>
+<h1>{{actionType}} Material</h1>
 <form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="form-group row">
     <label class=" control-label col-md-12">Nombre</label>
@@ -42,17 +42,6 @@
       <input class="form-control" type="number" formControlName="existencia">
     </div>
   </div>
-  <!--
-    <div class="form-group row">
-      <label class=" control-label col-md-12">CategoriaId</label>
-      <div class="col-md-12">
-        <input class="form-control" type="number" formControlName="categoriaId">
-      </div>
-      <span class="text-danger ml-3" *ngIf="categoriaId.invalid && formDir.submitted">
-          categoriaId requerido.
-      </span>
-    </div>
-  -->
 
   <div class="form-group">
     <label for="category">CategoriaId:</label>
