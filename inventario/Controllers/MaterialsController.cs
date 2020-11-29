@@ -25,7 +25,13 @@ namespace inventario.Controllers
         [HttpGet]
         public IEnumerable<Material> GetMaterial()
         {
-            return _context.Material.OrderByDescending(p => p.MaterialId);
+            List<Material> materialList = _context.Material
+                .Include("Categorias")
+                .Include("Proveedores")
+                .ToList();
+            //List<Material> materialList = _context.Material.Include("Categorias").ToList();
+           // return _context.Material.OrderByDescending(p => p.MaterialId);
+            return materialList;
         }
 
         // GET: api/Materials/5

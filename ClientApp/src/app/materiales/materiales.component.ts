@@ -20,6 +20,11 @@ export class MaterialesComponent implements OnInit {
 
   loadMateriales() {
     this.materiales$ = this.materialService.getMateriales();
+
+    this.materialService.getMateriales().subscribe(data => (
+      console.log(data)
+    ));
+
   }
 
   delete(materialId) {

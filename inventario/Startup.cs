@@ -28,8 +28,16 @@ namespace inventario
             /*services.AddControllers();
             services.AddDbContext<inventarioContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("inventarioContext")));*/
+            // Ignore ReferenceLoopHandling NewtonsoftJson
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // EnableEndpointRouting NewtonsoftJson
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddDbContext<inventarioContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("inventarioContext")));
             services.AddCors(options =>

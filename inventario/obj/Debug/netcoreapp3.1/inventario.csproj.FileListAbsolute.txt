@@ -164,3 +164,6 @@ C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.1\inventari
 C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.1\inventario.dll
 C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.1\inventario.pdb
 C:\Users\HP\source\repos\inventario\inventario\obj\Debug\netcoreapp3.1\inventario.genruntimeconfig.cache
+C:\Users\HP\source\repos\inventario\inventario\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\HP\source\repos\inventario\inventario\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\HP\source\repos\inventario\inventario\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

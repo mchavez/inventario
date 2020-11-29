@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KXGbE1xxMISoTpLqAR19T66iDwTAuRwtdQdXMA3GJM6GvHnxDSck8LKWeS+iOtYFUKE9Q8wFwyaxW7QRUHdVpw==",
+  "dgSpecHash": "JZ2haJO/1tQcMow2Ij9H+agb7yrw0ahFPhog970E5dYVtCqzwsZ7HSII90gkz/OthaZ9p63ASybenf8lsoJ45g==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\source\\repos\\inventario\\inventario\\inventario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.2\\microsoft.aspnetcore.jsonpatch.3.1.2.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.2\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.2.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.nodeservices\\3.1.10\\microsoft.aspnetcore.nodeservices.3.1.10.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
@@ -70,6 +72,7 @@
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\numind.aspnetcore.spaservices.extensions\\1.0.1\\numind.aspnetcore.spaservices.extensions.1.0.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\rimutec.aspnetcore.spaservices.extensions\\2.1.0\\rimutec.aspnetcore.spaservices.extensions.2.1.0.nupkg.sha512",
